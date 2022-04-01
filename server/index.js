@@ -19,16 +19,11 @@ app.use(cors());
 // Step 2 ------------------->
 app.use('/users', Routes);
 
-// https://www.mongodb.com/cloud/atlas
-// const USERNAME = process.env.USERNAME;
-// const PASSWORD = process.env.PASSWORD;
-// const URL = 'mongodb+srv://user:Manrun89@cluster0.zgrax.mongodb.net/CRUDAPP?retryWrites=true&w=majority';
-// const URL = 'mongodb://user:Manrun89@cluster-first-shard-00-00.zgrax.mongodb.net:27017,cluster-first-shard-00-01.zgrax.mongodb.net:27017,cluster-first-shard-00-02.zgrax.mongodb.net:27017/CRUDAPP?ssl=true&replicaSet=atlas-dair4b-shard-0&authSource=admin&retryWrites=true&w=majority'
-// const URL = 'mongodb://user:codeforinterview@crudapp-shard-00-00.zgrax.mongodb.net:27017,crudapp-shard-00-01.zgrax.mongodb.net:27017,crudapp-shard-00-02.zgrax.mongodb.net:27017/CRUDAPP?ssl=true&replicaSet=atlas-as0xva-shard-0&authSource=admin&retryWrites=true&w=majority'
+
 const URL = 'mongodb+srv://sarnendu:rupu@cluster0.7xwml.mongodb.net/Cluster0?retryWrites=true&w=majority'
 // const dotenv = require('dotenv'); //3 - but we need to tell express where to pick this port 
 // It allows you to seperate your crediantials when we work in a collaborative environment
-const PORT = process.env.PORT || '8080'; //2 - get the port from env file, if not available pick 8080
+const PORT = process.env.PORT || '3001'; //2 - get the port from env file, if not available pick 8080
 
 // connect with the database, takes two arguments 1 - connection url 2 - object with all the options
 // Some of the functions, features are deprecated so it might give you a warning, to avoid that warning

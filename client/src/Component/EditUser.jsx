@@ -13,6 +13,9 @@ const initialValue = {
 const useStyles = makeStyles({
     container: {
         width: '50%',
+        border: '1px solid blue',
+        borderRadius: '10px',
+        padding: '1%',
         margin: '5% 0 0 25%',
         '& > *': {
             marginTop: 20
@@ -48,7 +51,7 @@ const EditUser = () => {
 
     return (
         <FormGroup className={classes.container}>
-            <Typography variant="h4">Edit Information</Typography>
+            <Typography variant="h4">Edit User</Typography>
             <FormControl>
                 <InputLabel htmlFor="my-input">Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />

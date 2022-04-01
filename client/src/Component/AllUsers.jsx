@@ -2,17 +2,39 @@ import react, { useState, useEffect } from 'react';
 import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, makeStyles } from '@material-ui/core'
 import { getUsers, deleteUser } from '../Service/api';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles({
+
+    button: {
+        width:'fit-content',
+        background:'blue',
+        color:'white',
+        textDecoration: 'none',
+        float:'right',
+        marginRight:'86px',
+        marginTop:'50px',
+        marginBottom:'10px',
+        "&:hover": {
+            backgroundColor: 'blue'
+          }
+    },
+    
+    
     table: {
         width: '90%',
-        margin: '50px 0 0 50px'
+        margin: '50px 0 0 50px',
+        borderRadius:'10px'
     },
     thead: {
+        
         '& > *': {
             fontSize: 20,
             background: '#000000',
             color: '#FFFFFF'
+            
         }
     },
     row: {
@@ -42,6 +64,8 @@ const AllUsers = () => {
     }
 
     return (
+        <>
+        <Link to="/add" exact><Button className={classes.button}>Add User</Button></Link>
         <Table className={classes.table}>
             <TableHead>
                 <TableRow className={classes.thead}>
@@ -62,13 +86,14 @@ const AllUsers = () => {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
                         <TableCell>
-                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}>Edit</Button> {/* change it to user.id to use JSON Server */}
-                            <Button color="secondary" variant="contained" onClick={() => deleteUserData(user._id)}>Delete</Button> {/* change it to user.id to use JSON Server */}
+                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}><EditIcon /></Button> {/* change it to user.id to use JSON Server */}
+                            <Button color="secondary" variant="contained" onClick={() => deleteUserData(user._id)}><DeleteIcon /></Button> {/* change it to user.id to use JSON Server */}
                         </TableCell>
                     </TableRow>
                 ))}
             </TableBody>
         </Table>
+        </>
     )
 }
 

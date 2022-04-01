@@ -3,7 +3,6 @@ import AddUser from './Component/AddUser';
 import EditUser from './Component/EditUser';
 import NavBar from './Component/NavBar';
 import NotFound from './Component/NotFound'; 
-import CodeForInterview from './Component/CodeForInterview';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -11,8 +10,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path="/" component={CodeForInterview} />
-        <Route exact path="/all" component={AllUsers} />
+        <Route exact path="/" component={AllUsers} />
         <Route exact path="/add" component={AddUser} />
         <Route exact path="/edit/:id" component={EditUser} />
         <Route component={NotFound} />
