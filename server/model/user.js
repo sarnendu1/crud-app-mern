@@ -3,6 +3,7 @@ import autoIncrement from 'mongoose-auto-increment';
 
 // how our document look like
 const userSchema = mongoose.Schema({
+    image: String,
     name: String,
     username: String,
     email: String,

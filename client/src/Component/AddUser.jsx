@@ -2,12 +2,16 @@ import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
 import { addUser } from '../Service/api';
 import { useHistory } from 'react-router-dom';
+import FileBase64 from 'react-file-base64';
 
 const initialValue = {
+
+    image: '',
     name: '',
     username: '',
     email: '',
-    phone: ''
+    phone: '',
+
 }
 
 const useStyles = makeStyles({
@@ -22,7 +26,7 @@ const useStyles = makeStyles({
 
 const AddUser = () => {
     const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+    const { image, name, username, email, phone } = user;
     const classes = useStyles();
     let history = useHistory();
 
@@ -30,15 +34,23 @@ const AddUser = () => {
         console.log(e.target.value);
         setUser({...user, [e.target.name]: e.target.value})
     }
+    const onImageChange = (base64) => {
+        console.log(base64);
+        setUser({...user, [base64.target.name]: base64})
+    }
 
     const addUserDetails = async() => {
         await addUser(user);
-        history.push('./all');
+        history.push('/');
     }
 
     return (
-        <FormGroup className={classes.container}>
+        <FormGroup className={classes.container} >
             <Typography variant="h4">Add User</Typography>
+            {/* <FormControl>
+                <InputLabel htmlFor="my-input">Image</InputLabel>
+                <Input onChange={(e) => onValueChange(e)} type='file' name='name' value={name} id="my-input" />
+            </FormControl> */}
             <FormControl>
                 <InputLabel htmlFor="my-input">Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />

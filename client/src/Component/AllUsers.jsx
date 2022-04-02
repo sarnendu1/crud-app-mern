@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 
     button: {
         width:'fit-content',
-        background:'blue',
+        background:'#602AC3',
         color:'white',
         textDecoration: 'none',
         float:'right',
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         marginTop:'50px',
         marginBottom:'10px',
         "&:hover": {
-            backgroundColor: 'blue'
+            backgroundColor: '#602AC3'
           }
     },
     
@@ -26,16 +26,22 @@ const useStyles = makeStyles({
     table: {
         width: '90%',
         margin: '50px 0 0 50px',
-        borderRadius:'10px'
+        borderRadius:'10px',
+        
     },
     thead: {
         
         '& > *': {
             fontSize: 20,
-            background: '#000000',
+            background: '#f50057',
             color: '#FFFFFF'
             
         }
+    },
+    delete: {
+        color:'white',
+        background:'red',
+        
     },
     row: {
         '& > *': {
@@ -86,8 +92,8 @@ const AllUsers = () => {
                         <TableCell>{user.email}</TableCell>
                         <TableCell>{user.phone}</TableCell>
                         <TableCell>
-                            <Button color="primary" variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}><EditIcon /></Button> {/* change it to user.id to use JSON Server */}
-                            <Button color="secondary" variant="contained" onClick={() => deleteUserData(user._id)}><DeleteIcon /></Button> {/* change it to user.id to use JSON Server */}
+                            <Button color="primary"  variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}><EditIcon /></Button> {/* change it to user.id to use JSON Server */}
+                            <Button className={classes.delete} variant="contained" onClick={() => deleteUserData(user._id)}><DeleteIcon /></Button> {/* change it to user.id to use JSON Server */}
                         </TableCell>
                     </TableRow>
                 ))}

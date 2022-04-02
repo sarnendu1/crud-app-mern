@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
 import { useHistory, useParams } from 'react-router-dom';
 import { getUsers, editUser } from '../Service/api';
+import FileBase64 from 'react-file-base64';
 
 const initialValue = {
+    image: '',
     name: '',
     username: '',
     email: '',
@@ -25,7 +27,7 @@ const useStyles = makeStyles({
 
 const EditUser = () => {
     const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+    const { image, name, username, email, phone } = user;
     const { id } = useParams();
     const classes = useStyles();
     let history = useHistory();
@@ -41,7 +43,7 @@ const EditUser = () => {
 
     const editUserDetails = async() => {
         const response = await editUser(id, user);
-        history.push('/all');
+        history.push('/');
     }
 
     const onValueChange = (e) => {
@@ -52,6 +54,9 @@ const EditUser = () => {
     return (
         <FormGroup className={classes.container}>
             <Typography variant="h4">Edit User</Typography>
+            <FileBase64
+        multiple={ false }
+        onDone={({base64})=>onValueChange} name='image'  value={image} id="my-input"/>
             <FormControl>
                 <InputLabel htmlFor="my-input">Name</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
