@@ -34,9 +34,12 @@ const PORT = process.env.PORT || '3001'; //2 - get the port from env file, if no
 // To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true }
 // 3 - As per the official documentation, 'useFindAndModify': true by default. Set to false to make 
 // findOneAndUpdate() and findOneAndRemove() use native findOneAndUpdate() rather than findAndModify().
-mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => { 
+mongoose.connect(process.env.MONGODB_URI || URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(() => { 
     // we need .then becausew
     //it returns a promise 
+    if(process.env.NODE_ENV==='production'){
+        app.use(express.static('client/build'))
+    }
     app.listen(PORT, () => console.log(`Server is running on PORT: ${PORT}`))
 }).catch((error) => {
     console.log('Error:', error.message)
