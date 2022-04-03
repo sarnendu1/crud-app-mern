@@ -2,7 +2,6 @@ import react, { useState } from 'react';
 import { FormGroup, FormControl, InputLabel, Input, Button, makeStyles, Typography } from '@material-ui/core';
 import { addUser } from '../Service/api';
 import { useHistory } from 'react-router-dom';
-import FileBase64 from 'react-file-base64';
 
 const initialValue = {
 
@@ -14,20 +13,12 @@ const initialValue = {
 
 }
 
-const useStyles = makeStyles({
-    container: {
-        width: '50%',
-        margin: '5% 0 0 25%',
-        '& > *': {
-            marginTop: 20
-        }
-    }
-})
+
 
 const AddUser = () => {
     const [user, setUser] = useState(initialValue);
     const { image, name, username, email, phone } = user;
-    const classes = useStyles();
+    
     let history = useHistory();
 
     const onValueChange = (e) => {
@@ -45,32 +36,33 @@ const AddUser = () => {
     }
 
     return (
-        <FormGroup className={classes.container} >
-            <Typography variant="h4">Add User</Typography>
+        <div>
+        <form className="container" >
+            <center><h3>Add User</h3></center>
             {/* <FormControl>
                 <InputLabel htmlFor="my-input">Image</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} type='file' name='name' value={name} id="my-input" />
             </FormControl> */}
-            <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input"/>
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
-            </FormControl>
-            <FormControl>
-                <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
-            </FormControl>
-        </FormGroup>
+            
+                
+                <label for="my-input">Name</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" />
+                
+                <label for="my-input">Username</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" />
+           
+                <label for="my-input">Email</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" />
+           
+           
+                <label for="my-input">Phone</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
+                
+
+               <div className="button" onClick={() => addUserDetails()}>Submit</div>
+            
+        </form>
+        </div>
     )
 }
 

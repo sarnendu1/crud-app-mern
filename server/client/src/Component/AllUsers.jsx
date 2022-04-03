@@ -1,59 +1,18 @@
 import react, { useState, useEffect } from 'react';
-import { Table, TableHead, TableCell, Paper, TableRow, TableBody, Button, makeStyles } from '@material-ui/core'
+import { Table, thead, td, Paper, tr, TableBody, Button, makeStyles } from '@material-ui/core'
 import { getUsers, deleteUser } from '../Service/api';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import '../style.css';
 
-const useStyles = makeStyles({
 
-    button: {
-        width:'fit-content',
-        background:'#602AC3',
-        color:'white',
-        textDecoration: 'none',
-        float:'right',
-        marginRight:'86px',
-        marginTop:'50px',
-        marginBottom:'10px',
-        "&:hover": {
-            backgroundColor: '#602AC3'
-          }
-    },
-    
-    
-    table: {
-        width: '90%',
-        margin: '50px 0 0 50px',
-        borderRadius:'10px',
-        
-    },
-    thead: {
-        
-        '& > *': {
-            fontSize: 20,
-            background: '#f50057',
-            color: '#FFFFFF'
-            
-        }
-    },
-    delete: {
-        color:'white',
-        background:'red',
-        
-    },
-    row: {
-        '& > *': {
-            fontSize: 18
-        }
-    }
-})
 
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
-    const classes = useStyles();
+    
 
     useEffect(() => {
         getAllUsers();
@@ -71,34 +30,34 @@ const AllUsers = () => {
 
     return (
         <>
-        <Link to="/add" exact><Button className={classes.button}>Add User</Button></Link>
-        <Table className={classes.table}>
-            <TableHead>
-                <TableRow className={classes.thead}>
-                    <TableCell>Id</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Username</TableCell>
-                    <TableCell>Email</TableCell>
-                    <TableCell>Phone</TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
+        <Link to="/add" exact><button className="addbutton">Add User</button></Link>
+        <table className="table">
+            <thead>
+                <tr className="thead">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
                 {users.map((user) => (
-                    <TableRow className={classes.row} key={user.id}>
-                        <TableCell>{user._id}</TableCell> {/* change it to user.id to use JSON Server */}
-                        <TableCell>{user.name}</TableCell>
-                        <TableCell>{user.username}</TableCell>
-                        <TableCell>{user.email}</TableCell>
-                        <TableCell>{user.phone}</TableCell>
-                        <TableCell>
-                            <Button color="primary"  variant="contained" style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}><EditIcon /></Button> {/* change it to user.id to use JSON Server */}
-                            <Button className={classes.delete} variant="contained" onClick={() => deleteUserData(user._id)}><DeleteIcon /></Button> {/* change it to user.id to use JSON Server */}
-                        </TableCell>
-                    </TableRow>
+                    <tr className="row" key={user.id}>
+                        <td data-label="Id">{user._id}</td> {/* change it to user.id to use JSON Server */}
+                        <td data-label="Name">{user.name}</td>
+                        <td data-label="Username">{user.username}</td>
+                        <td data-label="Email">{user.email}</td>
+                        <td data-label="Phone">{user.phone}</td>
+                        <td>
+                          <Link to={`/edit/${user._id}`}>  <button className="edit" style={{marginRight:10}} ><EditIcon /></button></Link>
+                            <button className="delete" onClick={() => deleteUserData(user._id)}><DeleteIcon /></button>
+                        </td>
+                    </tr>
                 ))}
-            </TableBody>
-        </Table>
+            </tbody>
+        </table>
         </>
     )
 }

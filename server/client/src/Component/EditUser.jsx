@@ -12,24 +12,13 @@ const initialValue = {
     phone: ''
 }
 
-const useStyles = makeStyles({
-    container: {
-        width: '50%',
-        border: '1px solid blue',
-        borderRadius: '10px',
-        padding: '1%',
-        margin: '5% 0 0 25%',
-        '& > *': {
-            marginTop: 20
-        }
-    }
-})
+
 
 const EditUser = () => {
     const [user, setUser] = useState(initialValue);
     const { image, name, username, email, phone } = user;
     const { id } = useParams();
-    const classes = useStyles();
+    
     let history = useHistory();
 
     useEffect(() => {
@@ -52,31 +41,26 @@ const EditUser = () => {
     }
 
     return (
-        <FormGroup className={classes.container}>
-            <Typography variant="h4">Edit User</Typography>
-            <FileBase64
-        multiple={ false }
-        onDone={({base64})=>onValueChange} name='image'  value={image} id="my-input"/>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Name</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Username</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Email</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <InputLabel htmlFor="my-input">Phone</InputLabel>
-                <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text" />
-            </FormControl>
-            <FormControl>
-                <Button variant="contained" color="primary" onClick={() => editUserDetails()}>Edit User</Button>
-            </FormControl>
-        </FormGroup>
+        <div>
+        <form className="container">
+            <center><h3 >Edit User</h3></center>
+            <label for="my-input">Name</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='name' value={name} id="my-input" aria-describedby="my-helper-text"/>
+                
+                <label for="my-input">Username</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='username' value={username} id="my-input" aria-describedby="my-helper-text" />
+           
+                <label for="my-input">Email</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='email' value={email} id="my-input" aria-describedby="my-helper-text"/>
+           
+           
+                <label for="my-input">Phone</label>
+                <input type="text" onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" aria-describedby="my-helper-text"/>
+                
+
+               <div className="button" onClick={() => editUserDetails()}>Submit</div>
+               </form>
+               </div>
     )
 }
 

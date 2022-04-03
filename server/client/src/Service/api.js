@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // const usersUrl = 'http://localhost:3003/users';
-const usersUrl = '/users';
+const usersUrl = 'http://localhost:3001/users';
 
 export const getUsers = async (id) => {
     id = id || '';

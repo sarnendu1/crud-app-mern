@@ -1,0 +1,264 @@
+.container {
+  width: 50%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container h3{
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  
+}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px;
+}
+
+.button {
+  width:fit-content;
+        background: #f50057 ;
+        color:white;
+        text-decoration: none;
+       margin-left: auto;
+        margin-right:auto;
+        margin-top:50px;
+        margin-bottom:10px;
+        padding: 1%;
+        border-radius: 5px;
+        border: 1px solid #f50057 ;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+}
+.button:hover {
+  background: #f50057;
+}
+
+.addbutton {
+  width:'fit-content';
+        background: #f50057 ;
+        color:white;
+        text-decoration: none;
+        float:right;
+        margin-right:0px;
+        margin-top:50px;
+        margin-bottom:10px;
+        padding: 1%;
+        border-radius: 5px;
+        border: 1px solid #f50057 ;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+}
+.addbutton:hover {
+  background: #f50057;
+}
+
+
+.edit {
+  color:white;
+  background: #0D5EF6;
+  border: none;
+  color: white;
+  width: 60px; 
+  height: 35px; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete {
+  color:'white';
+  background:red;
+  border: none;
+  color: white;
+  width: 60px; 
+  height: 35px; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+table {
+  background: #602AC3;
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  background: white;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: #602AC3;
+  color: white;
+  height: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .button {
+    width:fit-content;
+          background: #f50057 ;
+          color:white;
+          text-decoration: none;
+         margin-left: auto;
+          margin-right:auto;
+          margin-top:50px;
+          margin-bottom:10px;
+          padding: 3%;
+          border-radius: 5px;
+          border: 1px solid #f50057 ;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+  }
+
+  
+  .addbutton {
+    width:'fit-content';
+          background: #f50057 ;
+          color:white;
+          text-decoration: none;
+          float:right;
+          margin-right:0px;
+          margin-top:50px;
+          margin-bottom:10px;
+          padding: 3%;
+          border-radius: 5px;
+          border: 1px solid #f50057 ;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+.header {
+  width: 100%;
+  background: #602AC3;
+  padding: 5px 0px 5px 10px;
+
+}
+.tabs h3{
+  color: #FFFFFF;
+        margin-right: 20;
+        text-decoration: none;
+        font-size: 30;
+}
+.tabs{
+  color: #FFFFFF;
+        margin-right: 20;
+        text-decoration: none;
+        font-size: 30;
+}

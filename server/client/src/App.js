@@ -3,6 +3,7 @@ import AddUser from './Component/AddUser';
 import EditUser from './Component/EditUser';
 import NavBar from './Component/NavBar';
 import NotFound from './Component/NotFound'; 
+import './style.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {

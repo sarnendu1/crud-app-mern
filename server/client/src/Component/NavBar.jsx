@@ -1,28 +1,19 @@
 import { AppBar, Toolbar, makeStyles } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../style.css';
 
-const useStyle = makeStyles({
-    header: {
-        background: '#602AC3'
-    },
-    tabs: {
-        color: '#FFFFFF',
-        marginRight: 20,
-        textDecoration: 'none',
-        fontSize: 20
-    }
-})
+
 
 const NavBar = () => {
-    const classes = useStyle();
+    
     return (
-        <AppBar position="static" className={classes.header}>
-            <Toolbar>
+        <div position="static" className="header">
+            
                 
-                <NavLink className={classes.tabs} to="/" exact>Sarnendu Crud App</NavLink>
+                <Link className="tabs" to="/" exact><h3>Sarnendu Crud App</h3></Link>
                 
-            </Toolbar>
-        </AppBar>
+            
+        </div>
     )
 }
 
